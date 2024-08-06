@@ -19,14 +19,56 @@ Account Management: Help with account settings, subscription details, or billing
 export async function POST(req) {
     const openai = new OpenAI()
     const data = await req.json()
-    console.log(data)
+    
     const completion = await openai.chat.completions.create({
         messages: [{"role": "system", "content": "i have trouble with my billing account"}, ...data
         ],
         model: "gpt-4o-mini",
-      });
+        // response word by word
+        stream: true,
+    });
 
-    return NextResponse.json({message: completion.choices[0].message.content}, {status: 200})
+    console.log('Completion Stream:', completion)
+
+    const stream = new ReadableStream({
+        async start(controller) {
+            const encoder = new TextEncoder()
+            try {
+                for await (const chunk of completion) {
+                    const content = chunk.choices[0]?.delta?.content
+
+                    if (content) {
+                        const text = encoder.encode(content)
+                        controller.enqueue(text)
+                    }
+                }
+            } catch (err) {
+                controller.error(err)
+            } finally {
+                controller.close()
+            }
+        },
+    })
+
+    // const stream = new ReadableStream({
+    //     async start(controller) {
+    //         try {
+    //             for await (const chunk of completion) {
+    //                 console.log(chunk.choices[0].delta.content)
+    //                 const text = new TextDecoder().decode(chunk.choices[0].delta.text)
+    //                 controller.enqueue(text)
+    //             }
+    //         } catch(err) {
+    //             controller.error(err)
+    //         } finally {
+    //             controller.close()
+    //         }
+    //     },
+    // })
+
+    return new NextResponse(stream)
+
+    // return NextResponse.json({message: completion.choices[0].message.content}, {status: 200})
 }
 
 
