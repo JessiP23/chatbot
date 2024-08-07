@@ -29,6 +29,7 @@ export default function Home() {
         let lastMessage = messages[messages.length - 1]
         let otherMessage = messages.slice(0, messages.length - 1)
 
+        // other messages
         return [...otherMessage, {...lastMessage, content: lastMessage.content + text}]
       })
 
