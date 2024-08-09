@@ -72,6 +72,7 @@ export default function Home() {
           ))
         }
       </Stack>
+      {/* stack send button */}
       <Stack direction={'row'} spacing={2}>
         <TextField label='Message' fullWidth value={message} onChange={(e) => setMessage(e.target.value)} />
         <Button onClick={sendMessage}>Send</Button>
