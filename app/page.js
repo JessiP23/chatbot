@@ -1,15 +1,16 @@
 'use client'
 
-import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const FashionRecommendation = () => {
   const [recommendation, setRecommendation] = useState([]);
+  const [filteredRecommendations, setFilteredRecommendations] = useState([]);
+  const [selectedFamily, setSelectedFamily] = useState('');
+  const [selectedSubFamily, setSelectedSubFamily] = useState('');
   const [families, setFamilies] = useState([]);
-  const [subFamilies, setSubFamilies] = useState([])
-
+  const [subFamilies, setSubFamilies] = useState([]);
 
   const url = 'https://fashionapi.p.rapidapi.com/Subfamily';
   const options = {
@@ -20,30 +21,74 @@ const FashionRecommendation = () => {
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      console.log(result);
-      setRecommendation(result)
-    } catch (error) {
-      console.error(error);
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setRecommendation(result);
+        setFilteredRecommendations(result);
+
+        const familySet = new Set(result.map(item => item.family));
+        const subFamilySet = new Set(result.map(item => item.subFamily));
+
+        setFamilies(Array.from(familySet));
+        setSubFamilies(Array.from(subFamilySet));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleFamilyChange = (event) => {
+    const family = event.target.value;
+    setSelectedFamily(family);
+    filterRecommendations(family, selectedSubFamily);
   };
+
+  const handleSubFamilyChange = (event) => {
+    const subFamily = event.target.value;
+    setSelectedSubFamily(subFamily);
+    filterRecommendations(selectedFamily, subFamily);
+  };
+
+  const filterRecommendations = (family, subFamily) => {
+    const filtered = recommendation.filter(item => 
+      (family === '' || item.family === family) &&
+      (subFamily === '' || item.subFamily === subFamily)
+    );
+    setFilteredRecommendations(filtered);
+  }
 
   return (
     <div>
       <h1>Fashion Lists</h1>
-      <form onSubmit={handleSubmit}>
-        
-        <button type='submit'>Get Recommendations</button>
+      <form>
+        <label>
+          Family:
+          <select value={selectedFamily} onChange={handleFamilyChange}>
+            <option value="">All Families</option>
+            {families.map(family => (
+              <option key={family} value={family}>{family}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          SubFamily:
+          <select value={selectedSubFamily} onChange={handleSubFamilyChange}>
+            <option value="">All SubFamilies</option>
+            {subFamilies.map(subFamily => (
+              <option key={subFamily} value={subFamily}>{subFamily}</option>
+            ))}
+          </select>
+        </label>
       </form>
       <ul>
-        {recommendation.map((item, index) => (
-          <li key={item.subFamily || index}>
-            <p>Family: {item.family} </p>
-            <p>Subfamily: {item.subFamily} </p>
+        {filteredRecommendations.map((item, index) => (
+          <li key={index}>
+            <p>Family: {item.family}</p>
+            <p>SubFamily: {item.subFamily}</p>
           </li>
         ))}
       </ul>
@@ -52,4 +97,4 @@ const FashionRecommendation = () => {
   )
 }
 
-export default FashionRecommendation
+export default FashionRecommendation;
