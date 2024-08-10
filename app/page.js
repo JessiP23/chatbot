@@ -68,7 +68,7 @@ const FashionRecommendation = () => {
 
   return (
     <div>
-      <Box style={{ textAlign: 'center', padding: '40px 0' }}>
+      <Box style={{ textAlign: 'center', padding: '40px 0', marginBottom: "25px" }}>
         <Text>
           <Text style={{ fontSize: "25px" }} weight='medium'>
           Welcome to{' '}
@@ -97,7 +97,7 @@ const FashionRecommendation = () => {
           </HoverCard.Root>{' '}
         </Text>
       </Box>
-      <Flex gap='9'>
+      <Flex gap='9' style={{ marginBottom: '25px' }}>
         <Image src={backgroundImage} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid' }} />
         <Image src={backgroundImage2} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid #000' }} />
         <Image src={backgroundImage3} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid gray' }} />
@@ -131,7 +131,7 @@ const FashionRecommendation = () => {
             <select value={selectedFamily} onChange={handleFamilyChange}>
               <option value="">All Families</option>
               {families.map(family => (
-                <option key={family} value={family}>{family}</option>
+                <option key={family} value={family} style={{fontSize: "18px"}}>{family}</option>
               ))}
             </select>
           </label>
@@ -140,7 +140,7 @@ const FashionRecommendation = () => {
             <select value={selectedSubFamily} onChange={handleSubFamilyChange}>
               <option value="">All SubFamilies</option>
               {subFamilies.map(subFamily => (
-                <option key={subFamily} value={subFamily}>{subFamily}</option>
+                <option key={subFamily} value={subFamily} style={{ fontSize: '18px' }}>{subFamily}</option>
               ))}
             </select>
           </label>
