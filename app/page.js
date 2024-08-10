@@ -9,6 +9,7 @@ import backgroundImage3 from '../images/accesory.png'
 import backgroundImage4 from '../images/shoe.png'
 import backgroundImage5 from '../images/diagonal.png'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const FashionRecommendation = () => {
   const [recommendation, setRecommendation] = useState([]);
@@ -17,6 +18,9 @@ const FashionRecommendation = () => {
   const [selectedSubFamily, setSelectedSubFamily] = useState('');
   const [families, setFamilies] = useState([]);
   const [subFamilies, setSubFamilies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const url = 'https://fashionapi.p.rapidapi.com/Subfamily';
   const options = {
@@ -65,6 +69,11 @@ const FashionRecommendation = () => {
       (subFamily === '' || item.subFamily === subFamily)
     );
     setFilteredRecommendations(filtered);
+  }
+
+  const handleAssistantClick = () => {
+    setLoading(true);
+    router.push('/api');
   }
 
   return (
@@ -224,6 +233,7 @@ const FashionRecommendation = () => {
               gridColumn: '2 / 3', 
               position: 'relative',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'white' // Adjust text color to be readable on the background
@@ -239,6 +249,11 @@ const FashionRecommendation = () => {
               }}
             >
               Discover the future of fashion with AI-powered recommendations tailored just for you.
+            </Text>
+            <Text>
+              <button onClick={handleAssistantClick} style={{ fontSize: '18px', padding: "10px 20px", backgroundColor: 'rgba(210, 129, 30, 0.8)', borderRadius: '5px', border: 'none', cursor: 'pointer', color: 'white' }}>
+                {loading ? 'Loading...' : 'Chatbot Assistant'} 
+              </button>
             </Text>
           </div>
         </div>
@@ -293,7 +308,6 @@ const FashionRecommendation = () => {
             </li>
           ))}
         </ul>
-        <Link href="/api">Are you undecided of these recommendations?</Link>
       </div>
     </div>
   )
