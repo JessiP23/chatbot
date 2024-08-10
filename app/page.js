@@ -3,6 +3,11 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Box, Flex, Heading, HoverCard, Separator, Text } from '@radix-ui/themes'
+import backgroundImage from '../images/vest.png'
+import backgroundImage2 from '../images/jacket.png'
+import backgroundImage3 from '../images/accesory.png'
+import backgroundImage4 from '../images/shoe.png'
+import Image from 'next/image'
 
 const FashionRecommendation = () => {
   const [recommendation, setRecommendation] = useState([]);
@@ -92,6 +97,12 @@ const FashionRecommendation = () => {
           </HoverCard.Root>{' '}
         </Text>
       </Box>
+      <Flex gap='9'>
+        <Image src={backgroundImage} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid' }} />
+        <Image src={backgroundImage2} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid #000' }} />
+        <Image src={backgroundImage3} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid gray' }} />
+        <Image src={backgroundImage4} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid gray' }} />
+      </Flex>
       <Box style={{ textAlign: 'center', padding: '40px 0' }}>
         <Text size='2' style={{ fontSize:'18px' }}>
           Bring and experience new families and subfamilies of clothing of your desire
