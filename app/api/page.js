@@ -1,12 +1,18 @@
 'use client'
 import { Box, Button, InputAdornment, Stack, TextField } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 export default function Home() {
 
+  const router = useRouter();
   // content chatbot
   const [messages, setMessages] = useState([
     {'role': 'system', 'content': `My name is Jessi. The Stylist assistant. How can I help you today?`}
   ])
+
+  const handleGoBack = () => {
+    router.push('/');
+  }
 
   const sendMessage = async () => {
     setMessage('')
@@ -52,6 +58,24 @@ export default function Home() {
     alignItems="center"
     bgcolor="#f5f5f5"  // Light gray background
   >
+    <Box position='absolute' top={16} left={16}>
+      <Button
+        onClick={handleGoBack}
+        sx={{
+          bgcolor: '#FF7043',
+          color: 'white',
+          borderRadius: '8px',
+          px: 3,
+          py: 1,
+          boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
+          '&:hover': {
+            bgcolor: '#FF5722'
+          }
+        }}
+      >
+        Go Back
+      </Button>
+    </Box>
     <Stack 
       direction="column" 
       width="500px" 
