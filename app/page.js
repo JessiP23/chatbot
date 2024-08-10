@@ -73,7 +73,7 @@ const FashionRecommendation = () => {
           </HoverCard.Trigger>
           <HoverCard.Content maxWidth="300px">
             <Flex gap="4">
-              <Box>
+              <Box >
                 <Heading size="3" as="h3">
                   Fashion.ai
                 </Heading>
