@@ -200,7 +200,7 @@ const FashionRecommendation = () => {
                   objectFit: 'cover',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }} 
-                className='hover:transform hover:scale-105 hover:box-shadow-lg' 
+                className='hover:transform hover:scale-105 hover:box-shadow-lg Image' 
               />
               <Image 
                 src={backgroundImage3} 
@@ -213,7 +213,7 @@ const FashionRecommendation = () => {
                   objectFit: 'cover',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }} 
-                className='hover:transform hover:scale-105 hover:box-shadow-lg'
+                className='hover:transform hover:scale-105 hover:box-shadow-lg Image'
               />
             </Flex>
           </div>
@@ -266,18 +266,18 @@ const FashionRecommendation = () => {
       </Box>
       <div style={{ textAlign: 'center', fontSize: '18px' }}>
         <form>
-          <label>
+          <label style={{ fontSize: '25px', display: 'block', marginBottom: '20px' }}>
             Family:
-            <select value={selectedFamily} onChange={handleFamilyChange}>
-              <option value="">All Families</option>
+            <select value={selectedFamily} onChange={handleFamilyChange} style={{ fontSize: '20px', marginLeft: '20px', padding: '5px' }}>
+              <option value="" style={{ fontSize: '20px' }}>All Families</option>
               {families.map(family => (
                 <option key={family} value={family} style={{fontSize: "18px"}}>{family}</option>
               ))}
             </select>
           </label>
-          <label>
+          <label style={{ fontSize: '25px' }}>
             SubFamily:
-            <select value={selectedSubFamily} onChange={handleSubFamilyChange}>
+            <select value={selectedSubFamily} onChange={handleSubFamilyChange} style={{ fontSize: '20px', marginLeft: '20px', padding: '5px' }}>
               <option value="">All SubFamilies</option>
               {subFamilies.map(subFamily => (
                 <option key={subFamily} value={subFamily} style={{ fontSize: '18px' }}>{subFamily}</option>
@@ -285,11 +285,11 @@ const FashionRecommendation = () => {
             </select>
           </label>
         </form>
-        <ul>
+        <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
           {filteredRecommendations.map((item, index) => (
-            <li key={index}>
-              <p>Family: {item.family}</p>
-              <p>SubFamily: {item.subFamily}</p>
+            <li key={index} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 20px', borderBottom: '1px solid #ccc' }}>
+              <p style={{ margin: 0, fontSize: '18px', fontWeight: 'bold' }}>Family: {item.family}</p>
+              <p style={{ margin: 0, fontSize: '18px', color: '#555' }}>SubFamily: {item.subFamily}</p>
             </li>
           ))}
         </ul>
