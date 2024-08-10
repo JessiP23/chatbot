@@ -70,156 +70,179 @@ const FashionRecommendation = () => {
   return (
     <div>
       <div 
-  style={{ 
-    display: 'grid', 
-    gridTemplateColumns: '1fr 1fr', 
-    height: '100vh', 
-    overflow: 'hidden' 
-  }} 
-  className='bg-amber-500'
->
-  <div 
-    style={{ 
-      gridColumn: '1 / 2', 
-      padding: '20px', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      justifyContent: 'center' 
-    }}
-  >
-    <Box style={{ textAlign: 'center', marginBottom: '100px' }}>
-      <Text>
-        <Text 
+        style={{ 
+          position: 'relative', 
+          height: '100vh', 
+          width: '100%', 
+          overflow: 'hidden', 
+          backgroundImage: `url(${backgroundImage5})`, 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center', 
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div 
           style={{ 
-            fontSize: '28px', 
-            lineHeight: '1.4', 
-            letterSpacing: '0.5px' 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '100%', 
+            display: 'grid', 
+            gridTemplateColumns: '1fr 1fr', 
+            backgroundColor: 'rgba(210, 129, 30, 0.8)'
           }} 
-          weight='medium'
         >
-          Welcome to
-        </Text>
-        <HoverCard.Root>
-          <HoverCard.Trigger>
-            <Link 
-              href="#" 
-              style={{ 
-                fontSize: '28px', 
-                display: 'block', 
-                marginTop: '10px',
-                transition: 'all 0.3s ease',
-                color: 'indigo',
-                textDecoration: 'none'
-              }} 
-              className='underline decoration-indigo-500 hover:decoration-indigo-700 hover:text-indigo-700'
-            >
-              Fashion.ai
-            </Link>
-          </HoverCard.Trigger>
-          <HoverCard.Content 
-            maxWidth="300px" 
+          <div 
             style={{ 
-              transition: 'all 0.3s ease',
-              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)' 
+              gridColumn: '1 / 2', 
+              padding: '20px', 
+              display: 'flex', 
+              flexDirection: 'column', 
+              justifyContent: 'center', 
+              color: 'white' 
             }}
           >
-            <Flex gap="4">
-              <Box>
-                <Heading 
-                  size="3" 
-                  as="h2" 
-                  style={{ 
-                    fontSize: '24px', 
-                    marginBottom: '10px' 
-                  }}
-                >
-                  Fashion.ai
-                </Heading>
+            <Box style={{ textAlign: 'center', marginBottom: '100px' }}>
+              <Text>
                 <Text 
-                  as="div" 
-                  size="2" 
-                  color="gray" 
-                  mb="2"
                   style={{ 
-                    fontSize: '16px', 
-                    color: '#6b7280' 
-                  }}
+                    fontSize: '28px', 
+                    lineHeight: '1.4', 
+                    letterSpacing: '0.5px' 
+                  }} 
+                  weight='medium'
                 >
-                  Fashion.ai
+                  Welcome to
                 </Text>
-                <Text 
-                  as="div" 
-                  size="2" 
-                  style={{ 
-                    fontSize: '16px', 
-                    color: '#4b5563' 
-                  }}
-                >
-                  AI application providing recommendations of clothing based on families and subfamilies.
-                </Text>
-              </Box>
+                <HoverCard.Root>
+                  <HoverCard.Trigger>
+                    <Link 
+                      href="#" 
+                      style={{ 
+                        fontSize: '28px', 
+                        display: 'block', 
+                        marginTop: '10px',
+                        transition: 'all 0.3s ease',
+                        color: 'white', 
+                        textDecoration: 'none'
+                      }} 
+                      className='underline decoration-indigo-500 hover:decoration-indigo-300 hover:text-indigo-300'
+                    >
+                      Fashion.ai
+                    </Link>
+                  </HoverCard.Trigger>
+                  <HoverCard.Content 
+                    maxWidth="300px" 
+                    style={{ 
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+                      color: '#333'
+                    }}
+                  >
+                    <Flex gap="4">
+                      <Box>
+                        <Heading 
+                          size="3" 
+                          as="h2" 
+                          style={{ 
+                            fontSize: '24px', 
+                            marginBottom: '10px' 
+                          }}
+                        >
+                          Fashion.ai
+                        </Heading>
+                        <Text 
+                          as="div" 
+                          size="2" 
+                          color="gray" 
+                          mb="2"
+                          style={{ 
+                            fontSize: '16px', 
+                            color: '#6b7280' 
+                          }}
+                        >
+                          Fashion.ai
+                        </Text>
+                        <Text 
+                          as="div" 
+                          size="2" 
+                          style={{ 
+                            fontSize: '16px', 
+                            color: '#4b5563' 
+                          }}
+                        >
+                          AI application providing recommendations of clothing based on families and subfamilies.
+                        </Text>
+                      </Box>
+                    </Flex>
+                  </HoverCard.Content>
+                </HoverCard.Root>
+              </Text>
+            </Box>
+            <Flex 
+              gap='20px' 
+              style={{ 
+                marginBottom: '25px', 
+                flexWrap: 'wrap', 
+                justifyContent: 'center' 
+              }}
+            >
+              <Image 
+                src={backgroundImage2} 
+                style={{ 
+                  height: '300px', 
+                  width: '300px', 
+                  borderRadius: '10%', 
+                  border: 'none', 
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)', 
+                  objectFit: 'cover',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }} 
+                className='hover:transform hover:scale-105 hover:box-shadow-lg' 
+              />
+              <Image 
+                src={backgroundImage3} 
+                style={{ 
+                  height: '300px', 
+                  width: '300px', 
+                  borderRadius: '10%', 
+                  border: 'none', 
+                  boxShadow: '0px 8px 16px rgba(0,0,0,0.3)', 
+                  objectFit: 'cover',
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                }} 
+                className='hover:transform hover:scale-105 hover:box-shadow-lg'
+              />
             </Flex>
-          </HoverCard.Content>
-        </HoverCard.Root>
-      </Text>
-    </Box>
-    <Flex 
-      gap='20px' 
-      style={{ 
-        marginBottom: '25px', 
-        flexWrap: 'wrap', 
-        justifyContent: 'center' 
-      }}
-    >
-      <Image 
-        src={backgroundImage2} 
-        style={{ 
-          height: '300px', 
-          width: '300px', 
-          borderRadius: '10%', 
-          border: 'none', 
-          boxShadow: '0px 8px 16px rgba(0,0,0,0.3)', 
-          objectFit: 'cover',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-        }} 
-        className='hover:transform hover:scale-105 hover:box-shadow-lg' 
-      />
-      <Image 
-        src={backgroundImage3} 
-        style={{ 
-          height: '300px', 
-          width: '300px', 
-          borderRadius: '10%', 
-          border: 'none', 
-          boxShadow: '0px 8px 16px rgba(0,0,0,0.3)', 
-          objectFit: 'cover',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-        }} 
-        className='hover:transform hover:scale-105 hover:box-shadow-lg'
-      />
-    </Flex>
-  </div>
+          </div>
 
-  {/* Right Side Diagonal Image */}
-  <div 
-    style={{ 
-      gridColumn: '2 / 3', 
-      position: 'relative' 
-    }}
-  >
-    <Image 
-      src={backgroundImage5} 
-      style={{ 
-        height: '100%', 
-        width: '100%', 
-        objectFit: 'cover', 
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% 50%)',
-        transition: 'clip-path 0.5s ease'
-      }} 
-      className='hover:clip-path[polygon(0 0, 100% 0, 100% 100%, 0% 50%)]'
-    />
-  </div>
-</div>
+          {/* Right Side Content */}
+          <div 
+            style={{ 
+              gridColumn: '2 / 3', 
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white' // Adjust text color to be readable on the background
+            }}
+          >
+            <Text 
+              style={{ 
+                fontSize: '22px', 
+                textAlign: 'center', 
+                padding: '20px', 
+                backgroundColor: 'rgba(0, 0, 0, 0.6)', 
+                borderRadius: '10px'
+              }}
+            >
+              Discover the future of fashion with AI-powered recommendations tailored just for you.
+            </Text>
+          </div>
+        </div>
+      </div>
       <Box style={{ textAlign: 'center', padding: '40px 0' }}>
         <Text size='2' style={{ fontSize:'18px' }}>
           Bring and experience new families and subfamilies of clothing of your desire
