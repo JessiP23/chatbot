@@ -280,7 +280,7 @@ const FashionRecommendation = () => {
         </Text>
       </Box>
       <div style={{ textAlign: 'center', fontSize: '18px' }}>
-        <form>
+        <form style={{ marginBottom: '50px' }}>
           <label style={{ fontSize: '25px', display: 'block', marginBottom: '20px' }}>
             Family:
             <select value={selectedFamily} onChange={handleFamilyChange} style={{ fontSize: '20px', marginLeft: '20px', padding: '5px' }}>
