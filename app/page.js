@@ -6,10 +6,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const FashionRecommendation = () => {
-  const [category, setCategory] = useState('');
-  const [style, setStyle] = useState('');
-  const [occasion, setOccasion] = useState('');
   const [recommendation, setRecommendation] = useState([]);
+  const [families, setFamilies] = useState([]);
+  const [subFamilies, setSubFamilies] = useState([])
 
 
   const url = 'https://fashionapi.p.rapidapi.com/Subfamily';
@@ -37,18 +36,7 @@ const FashionRecommendation = () => {
     <div>
       <h1>Fashion Lists</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Category:
-          <input type='text' value={category} onChange={(event) => setCategory(event.target.value)}/>
-        </label>
-        <label>
-          Style:
-          <input type='text' value={style} onChange={(event) => setStyle(event.target.value)}/>
-        </label>
-        <label>
-          Occasion:
-          <input type='text' value={occasion} onChange={(event) => setOccasion(event.target.value)}/>
-        </label>
+        
         <button type='submit'>Get Recommendations</button>
       </form>
       <ul>
