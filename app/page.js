@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Box, Flex, Heading, HoverCard, Text } from '@radix-ui/themes'
+import { Box, Flex, Heading, HoverCard, Separator, Text } from '@radix-ui/themes'
 
 const FashionRecommendation = () => {
   const [recommendation, setRecommendation] = useState([]);
@@ -65,9 +65,9 @@ const FashionRecommendation = () => {
     <div>
       <Box style={{ textAlign: 'center', padding: '40px 0' }}>
         <Text>
-          <span style={{ fontSize: "25px" }}>
+          <Text style={{ fontSize: "25px" }} weight='medium'>
           Welcome to{' '}
-          </span>
+          </Text>
           <HoverCard.Root>
             <HoverCard.Trigger>
               <Link href="#" style={{ fontSize: "25px" }}>
@@ -90,6 +90,27 @@ const FashionRecommendation = () => {
               </Flex>
             </HoverCard.Content>
           </HoverCard.Root>{' '}
+        </Text>
+      </Box>
+      <Box style={{ textAlign: 'center', padding: '40px 0' }}>
+        <Text size='2' style={{ fontSize:'18px' }}>
+          Bring and experience new families and subfamilies of clothing of your desire
+          <Separator my='3' size='4' />
+          <Flex gap='3' align='center' justify='center' style={{ fontSize: '15px' }}>
+            Chaqueta
+            <Separator orientation='vertical' />
+            Blasier
+            <Separator orientation='vertical' />
+            Abrigo
+            <Separator orientation='vertical' />
+            Cazadora
+            <Separator orientation='vertical' />
+            Chaleco
+            <Separator orientation='vertical' />
+            Vestido
+            <Separator orientation='vertical' />
+            And more...
+          </Flex>
         </Text>
       </Box>
       <form>
