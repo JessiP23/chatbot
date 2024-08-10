@@ -124,35 +124,37 @@ const FashionRecommendation = () => {
           </Flex>
         </Text>
       </Box>
-      <form>
-        <label>
-          Family:
-          <select value={selectedFamily} onChange={handleFamilyChange}>
-            <option value="">All Families</option>
-            {families.map(family => (
-              <option key={family} value={family}>{family}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          SubFamily:
-          <select value={selectedSubFamily} onChange={handleSubFamilyChange}>
-            <option value="">All SubFamilies</option>
-            {subFamilies.map(subFamily => (
-              <option key={subFamily} value={subFamily}>{subFamily}</option>
-            ))}
-          </select>
-        </label>
-      </form>
-      <ul>
-        {filteredRecommendations.map((item, index) => (
-          <li key={index}>
-            <p>Family: {item.family}</p>
-            <p>SubFamily: {item.subFamily}</p>
-          </li>
-        ))}
-      </ul>
-      <Link href="/api">Are you undecided of these recommendations?</Link>
+      <div style={{ textAlign: 'center', fontSize: '18px' }}>
+        <form>
+          <label>
+            Family:
+            <select value={selectedFamily} onChange={handleFamilyChange}>
+              <option value="">All Families</option>
+              {families.map(family => (
+                <option key={family} value={family}>{family}</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            SubFamily:
+            <select value={selectedSubFamily} onChange={handleSubFamilyChange}>
+              <option value="">All SubFamilies</option>
+              {subFamilies.map(subFamily => (
+                <option key={subFamily} value={subFamily}>{subFamily}</option>
+              ))}
+            </select>
+          </label>
+        </form>
+        <ul>
+          {filteredRecommendations.map((item, index) => (
+            <li key={index}>
+              <p>Family: {item.family}</p>
+              <p>SubFamily: {item.subFamily}</p>
+            </li>
+          ))}
+        </ul>
+        <Link href="/api">Are you undecided of these recommendations?</Link>
+      </div>
     </div>
   )
 }
