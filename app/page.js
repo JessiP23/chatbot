@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Avatar, Box, Flex, Heading, HoverCard, Text } from '@radix-ui/themes'
+import { Box, Flex, Heading, HoverCard, Text } from '@radix-ui/themes'
 
 const FashionRecommendation = () => {
   const [recommendation, setRecommendation] = useState([]);
