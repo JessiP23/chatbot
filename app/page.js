@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Box, Flex, Grid, Heading, HoverCard, Separator, Text } from '@radix-ui/themes'
+import { Box, Flex, Grid, Heading, HoverCard, Separator, Table, Text } from '@radix-ui/themes'
 import backgroundImage from '../images/vest.png'
 import backgroundImage2 from '../images/jacket.png'
 import backgroundImage3 from '../images/accesory.png'
@@ -300,14 +300,32 @@ const FashionRecommendation = () => {
             </select>
           </label>
         </form>
-        <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
+        <Table.Root>
+          <Table.Header>
+            <Table.Row>
+              <Table.ColumnHeaderCell>Family</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>SubFamily</Table.ColumnHeaderCell>
+            </Table.Row>
+          </Table.Header>
+
+          {filteredRecommendations.map((item, index) => (
+          <Table.Body>
+            
+              <Table.RowHeaderCell>{item.family}</Table.RowHeaderCell>
+              <Table.Cell>{item.subFamily}</Table.Cell>
+            
+          </Table.Body>
+          ))}
+
+        </Table.Root>
+        {/* <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
           {filteredRecommendations.map((item, index) => (
             <li key={index} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 20px', borderBottom: '1px solid #ccc' }}>
               <p style={{ margin: 0, fontSize: '18px', fontWeight: 'bold' }}>Family: {item.family}</p>
               <p style={{ margin: 0, fontSize: '18px', color: '#555' }}>SubFamily: {item.subFamily}</p>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     </div>
   )
