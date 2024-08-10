@@ -63,7 +63,7 @@ const FashionRecommendation = () => {
 
   return (
     <div>
-      <h1>Fashion Lists</h1>
+      <h1>Welcome to Fashion.ai</h1>
       <form>
         <label>
           Family:
