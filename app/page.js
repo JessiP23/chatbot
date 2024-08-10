@@ -65,28 +65,28 @@ const FashionRecommendation = () => {
     <div>
       <Text>
       Welcome to{' '}
-  <HoverCard.Root>
-    <HoverCard.Trigger>
-      <Link href="#">
-        Fashion.ai
-      </Link>
-    </HoverCard.Trigger>
-    <HoverCard.Content maxWidth="300px">
-      <Flex gap="4">
-        <Box>
-          <Heading size="3" as="h3">
-            Fashion.ai
-          </Heading>
-          <Text as="div" size="2" color="gray" mb="2">
-            Fashion.ai
-          </Text>
-          <Text as="div" size="2">
-            AI application providing recommendation of clothing based on families and subfamilies
-          </Text>
-        </Box>
-      </Flex>
-    </HoverCard.Content>
-  </HoverCard.Root>{' '}
+        <HoverCard.Root>
+          <HoverCard.Trigger>
+            <Link href="#">
+              Fashion.ai
+            </Link>
+          </HoverCard.Trigger>
+          <HoverCard.Content maxWidth="300px">
+            <Flex gap="4">
+              <Box>
+                <Heading size="3" as="h3">
+                  Fashion.ai
+                </Heading>
+                <Text as="div" size="2" color="gray" mb="2">
+                  Fashion.ai
+                </Text>
+                <Text as="div" size="2">
+                  AI application providing recommendation of clothing based on families and subfamilies
+                </Text>
+              </Box>
+            </Flex>
+          </HoverCard.Content>
+        </HoverCard.Root>{' '}
       </Text>
       <form>
         <label>
