@@ -98,10 +98,10 @@ const FashionRecommendation = () => {
         </Text>
       </Box>
       <Flex gap='9' style={{ marginBottom: '25px' }}>
-        <Image src={backgroundImage} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid' }} />
-        <Image src={backgroundImage2} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid #000' }} />
-        <Image src={backgroundImage3} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid gray' }} />
-        <Image src={backgroundImage4} style={{ height:'300px', width: '300px', borderRadius:"10%", border: '1px solid gray' }} />
+        <Image src={backgroundImage} style={{ height:'300px', width: '300px', borderRadius:"10%", border: 'none', boxShadow: '0px 4px 8px rgba(0,0,0,0.2)', objectFit: 'cover' }} />
+        <Image src={backgroundImage2} style={{ height:'300px', width: '300px', borderRadius:"10%", border: 'none', boxShadow: '0px 4px 8px rgba(0,0,0,0.2)', objectFit: 'cover' }} />
+        <Image src={backgroundImage3} style={{ height:'300px', width: '300px', borderRadius:"10%", border: 'none', boxShadow: '0px 4px 8px rgba(0,0,0,0.2)', objectFit: 'cover' }} />
+        <Image src={backgroundImage4} style={{ height:'300px', width: '300px', borderRadius:"10%", border: 'none', boxShadow: '0px 4px 8px rgba(0,0,0,0.2)', objectFit: 'cover' }} />
       </Flex>
       <Box style={{ textAlign: 'center', padding: '40px 0' }}>
         <Text size='2' style={{ fontSize:'18px' }}>
