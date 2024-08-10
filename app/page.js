@@ -63,31 +63,35 @@ const FashionRecommendation = () => {
 
   return (
     <div>
-      <Text>
-      Welcome to{' '}
-        <HoverCard.Root>
-          <HoverCard.Trigger>
-            <Link href="#">
-              Fashion.ai
-            </Link>
-          </HoverCard.Trigger>
-          <HoverCard.Content maxWidth="300px">
-            <Flex gap="4">
-              <Box >
-                <Heading size="3" as="h3">
-                  Fashion.ai
-                </Heading>
-                <Text as="div" size="2" color="gray" mb="2">
-                  Fashion.ai
-                </Text>
-                <Text as="div" size="2">
-                  AI application providing recommendation of clothing based on families and subfamilies
-                </Text>
-              </Box>
-            </Flex>
-          </HoverCard.Content>
-        </HoverCard.Root>{' '}
-      </Text>
+      <Box style={{ textAlign: 'center', padding: '40px 0' }}>
+        <Text>
+          <span style={{ fontSize: "25px" }}>
+          Welcome to{' '}
+          </span>
+          <HoverCard.Root>
+            <HoverCard.Trigger>
+              <Link href="#" style={{ fontSize: "25px" }}>
+                Fashion.ai
+              </Link>
+            </HoverCard.Trigger>
+            <HoverCard.Content maxWidth="300px">
+              <Flex gap="4">
+                <Box >
+                  <Heading size="3" as="h2">
+                    Fashion.ai
+                  </Heading>
+                  <Text as="div" size="2" color="gray" mb="2">
+                    Fashion.ai
+                  </Text>
+                  <Text as="div" size="2">
+                    AI application providing recommendation of clothing based on families and subfamilies
+                  </Text>
+                </Box>
+              </Flex>
+            </HoverCard.Content>
+          </HoverCard.Root>{' '}
+        </Text>
+      </Box>
       <form>
         <label>
           Family:
