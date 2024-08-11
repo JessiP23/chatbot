@@ -26,8 +26,8 @@ const FashionRecommendation = () => {
   const options = {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': '653ca72938msh9ab144de9170b72p1f59bdjsneebb411895d3',
-      'x-rapidapi-host': 'fashionapi.p.rapidapi.com'
+      'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPID_API_KEY,
+      'x-rapidapi-host': process.env.NEXT_PUBLIC_RAPID_API_URL
     }
   };
 
