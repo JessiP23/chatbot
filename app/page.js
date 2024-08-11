@@ -210,6 +210,7 @@ const FashionRecommendation = () => {
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }} 
                 className='hover:transform hover:scale-105 hover:box-shadow-lg Image' 
+                alt='image'
               />
               <Image 
                 src={backgroundImage3} 
@@ -223,6 +224,7 @@ const FashionRecommendation = () => {
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                 }} 
                 className='hover:transform hover:scale-105 hover:box-shadow-lg Image'
+                alt='image'
               />
             </Flex>
           </div>
@@ -236,7 +238,7 @@ const FashionRecommendation = () => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'white' // Adjust text color to be readable on the background
+              color: 'white' 
             }}
           >
             <Text 
@@ -309,7 +311,7 @@ const FashionRecommendation = () => {
           </Table.Header>
 
           {filteredRecommendations.map((item, index) => (
-          <Table.Body>
+          <Table.Body key={index}>
             
               <Table.RowHeaderCell>{item.family}</Table.RowHeaderCell>
               <Table.Cell>{item.subFamily}</Table.Cell>
@@ -318,14 +320,6 @@ const FashionRecommendation = () => {
           ))}
 
         </Table.Root>
-        {/* <ul style={{ listStyleType: 'none', padding: 0, margin: 0 }}>
-          {filteredRecommendations.map((item, index) => (
-            <li key={index} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 20px', borderBottom: '1px solid #ccc' }}>
-              <p style={{ margin: 0, fontSize: '18px', fontWeight: 'bold' }}>Family: {item.family}</p>
-              <p style={{ margin: 0, fontSize: '18px', color: '#555' }}>SubFamily: {item.subFamily}</p>
-            </li>
-          ))}
-        </ul> */}
       </div>
     </div>
   )
